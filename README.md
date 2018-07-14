@@ -1,7 +1,9 @@
 # angular-cli-heroku
 Deploy to Heroku with @angular/cli.
 
-This project was inspired by `rbinsztock/angular-cli-heroku`. Although Rémy's project, the intention here was to provide a way to deploy to Heroku from an existing `@angular/cli` project.
+This project was inspired by [rbinsztock/angular-cli-heroku](http://github.com/rbinsztock/angular-cli-heroku). 
+
+Although unlike Rémy's project, the intention here was to provide a way to deploy to Heroku from an existing `@angular/cli` project.
 
 ## Assumptions
 This project assumes:
@@ -11,8 +13,10 @@ This project assumes:
 3. You know how to deploy to Heroku generally, with the Heroku Toolbelt or through a GitHub repository automatic deployment.
 
 ## Express
-Install express into your `@angular/cli` project with NPM:
-`npm install express --save`
+Install express into your `@angular/cli` project with NPM.
+````
+npm install express --save
+````
 
 ## heroku.js 
 Save the heroku.js file to your app's root directory (same place as `package.json`.
@@ -29,6 +33,6 @@ Within your `package.json` ensure the `"start:"` script points to `node heroku.j
 
 The `heroku-postbuild` hook will be run automatically by Heroku on deployment.
 
-We override the `--output-path` for ease of deployment. The `outputPath` normally comes from angular.json and will usually point to `dist/projectName`. This creates obvious problems for our Express `heroku.js` server, so we insist the build uses just `dist`.
+We override the `--output-path` for ease of deployment. The `outputPath` normally comes from `angular.json` and will usually point to `dist/projectName`. This creates obvious problems for our Express `heroku.js` server, so we insist the build uses just `dist`.
 
 If your getting an error like `Error Not Found`, it will most likely relate to the build location from your `outputPath` not matching the paths within `heroku.js`.
